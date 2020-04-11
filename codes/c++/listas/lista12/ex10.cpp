@@ -12,6 +12,7 @@ A média de idade dos homens que leram menos que 5 livros.
 O percentual de pessoas que não leram livros.*/
 
 #include <iostream>
+#include <string>
 
 using namespace std;
 
@@ -20,33 +21,35 @@ int main()
     setlocale(LC_ALL, "ptb");
     char sexo;
     int idade,numPessoas,numHomens, numLivrosLidos = 0;
-    bool repeat;
+    bool repeat = true, sex = false;
 
 
     float respostas[4] = {0,0,0,0};
 
-    while(idade != 0)
-    {
-        cout << "Sua idade(obs. idades inferiores a 1 serão desconsideradas e as perguntas serão encerradas): ";
+    while(repeat == true)
+    {        
+        cout << "Sua idade"<<endl<<"(obs --> idades inferiores a 1 serão desconsideradas e as perguntas serão encerradas): ";
         cin >> idade;
 
-        numPessoas++;
         if (idade  != 0)
         {
-            while(toupper(sexo) != 'H' || toupper(sexo) != 'M')
+            numPessoas++;
+
+            while (sex == false)
             {
                 cout << "Sexo, homem(H) ou mulher(M): ";
                 cin >> sexo;
 
-                if (toupper(sexo) != 'H' || toupper(sexo) != 'M')
+                if (toupper(sexo) == 'H' || toupper(sexo) == 'M')
                 {
-                    cout << "Vc e um E.T.? Isso n e sexo";
+                    sex = true;
                 }
                 
             }
-
+            
             cout << "Número de livros que leu em 2015: ";
             cin >> numLivrosLidos;
+            cout << endl;
 
             if(idade < 10)
             {
@@ -68,14 +71,19 @@ int main()
             {
                 respostas[3]++;
             }
-        }
+            sex = false;
+        }else
+        {
+            repeat = false;
+        }        
     }
 
     cout << "Resultados:"<<endl
          << "a) "<<respostas[0]<<endl
          << "b) "<<respostas[1]<<endl
          << "c) "<<respostas[2]/numHomens<<endl
-         << "d) "<<respostas[3]/numPessoas<<"%"<<endl; 
+         << "d) "<<(respostas[3]/numPessoas)*100.0<<"%"<<endl
+         << "quantidade de pessoas: " << numPessoas<<endl; 
     
     return 0;
 }

@@ -102,7 +102,7 @@ novamente uma opção, até ser válida
                 }
             }
             //declarando vencedor
-            cout << "Vencedor: " << vencedor;
+            cout << "Vencedor: " << vencedor<<endl;
             votando = false;
         }else
         {

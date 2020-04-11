@@ -7,7 +7,6 @@ int main()
     setlocale(LC_ALL, "ptb");
 
     int numLinhas = 0;
-    int numLinhas2;
     int drawAsteris[2];
     char aster = '*';
     
@@ -21,22 +20,22 @@ int main()
         }
     }
     cout << endl;
-
+    
     //desenhar de cima até o meio
-        numLinhas2 = ((numLinhas/2.0)+0.5);//metade da piramide
-        int pos;
+        
+        int numEspacos = ((numLinhas/2.0)+0.5)/1;
         for (size_t i = 1; i <= numLinhas-1; i+=2)//escolher as linhas
         {
             drawAsteris[0] = i;
+            
+            for (size_t e = 0; e < numEspacos-1 ; e++)
+            {
+                cout<< " ";
+            }
+            numEspacos--;
             while(drawAsteris[0] !=0)//desenha os asteriscos
             {
-                while (numLinhas2 !=0)
-                {
-                    cout << " ";
-                    numLinhas2--;
-                    pos++;
-                }
-                numLinhas2 = ((numLinhas/2.0)+0.5)-pos;
+                //numLinhas2 = ((numLinhas/2.0)+0.5);
                 cout << aster;
                 drawAsteris[0]--;
             }
@@ -56,7 +55,15 @@ int main()
 
     while (numLinhas-2 > 0)
     {
-        for (size_t i = 3 ; i <= numLinhas; i++)
+        int pos;
+        pos++;
+        //espacos do meio ate o fim
+            for (size_t i = 0; i < pos; i++)
+            {
+                cout<< " ";
+            }
+
+        for (size_t b = 3 ; b <= numLinhas; b++)
         {
             cout << aster;
         }

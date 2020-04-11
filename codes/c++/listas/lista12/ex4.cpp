@@ -33,6 +33,7 @@ int main()
                 numAdvogados++;
             }
         }
+        cout<<endl;
     }
 
     cout << endl<<"Número de advogados presentes: " << numAdvogados<<endl;    

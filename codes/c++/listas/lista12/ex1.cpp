@@ -49,38 +49,38 @@ int main()
 
     //exercicio e
         cout << "exercicio E" << endl;
-        int num[15];
-        int soma;
-        float media;
-        for (size_t i = 0; i < 15; i++)
+        
+        int soma = 0;
+        //float media = 0;
+        for (size_t i = 1; i <= 15; i++)
         {
             soma += i;
-            media += i;       
+            //media += i;       
         }
-        media/=15.0;
+        //media/=15.0;
         cout << "Soma: "<< soma<<endl;
-        cout <<"Média: "<< media<<endl;
+        cout <<"Média: "<< soma/15.0<<endl;
         cout<<endl;
     
 
     //exercicio f
         cout << "exercicio F" << endl;
-        int numI,numP;
-        for (size_t i = 0; i < 11; i++)
+        int numI = 0,numP = 0;
+        for (size_t i = 1; i <= 10; i++)
         {
             cout << i;
             if (i%2 == 0)
             {
-                cout << "esse número é par"<<endl;
+                cout << " é par"<<endl;
                 numP++;
             }else
             {
-                cout << "esse número é impar"<<endl;
+                cout << " é impar"<<endl;
                 numI++;
             }
                 
         }
-        cout<<"numeros impares, "<<numI<<endl
+        cout<<endl<<"numeros impares, "<<numI<<endl
             <<"numeros pares, "<<numP<<endl;
         cout<<endl;
     
@@ -92,13 +92,16 @@ int main()
         int numNul = 0;
         int simbol;
         
-        for (size_t i = 0; i < 21; i++)
-        {
-            srand(time(0));
-            simbol = rand()%4;
+        
+        srand(time(0));
+
+        for (size_t i = 1; i <= 20; i++)
+        {            
+            simbol = rand()%3;           
+
             if (simbol == 0)
             {
-                cout <<"Negativo -"<< i *-1<<endl;
+                cout <<"Negativo -"<< i <<endl;
                 numNeg++;
             }else if(simbol == 1)
             {
@@ -110,8 +113,8 @@ int main()
                 numNul++;
             }             
         }
-        cout<<"numeros negativos: "<<numI<<endl
-            <<"numeros positivos: "<<numP<<endl
+        cout<<"numeros negativos: "<<numNeg<<endl
+            <<"numeros positivos: "<<numPos<<endl
             <<"numeros nulos: "<<numNul<<endl;
 
         cout<<endl;    
@@ -119,8 +122,8 @@ int main()
 
     //exercicio h
         cout << "exercicio H" << endl;
-        int numerosSomar,n2;
-        int numR;    
+        int numerosSomar = 0,n2;
+        int numR = 0;    
         cout<<"exercicio h"<<endl
             <<"numeros a serem lidos de 1 até ele: ";
         cin >> numerosSomar;
