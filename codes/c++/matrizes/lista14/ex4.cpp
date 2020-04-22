@@ -89,7 +89,7 @@ int main()
     }
     
 
-    for (int l = 0; l < linhasM1; l++)
+    for (int l = 0; l < linhasM1; l++)//imprimir matriz p
     {
         for (int c = 0; c < colunasM2; c++)
         {

@@ -6,7 +6,7 @@ int main()
 {
     char ordem;
     int valor1=0,valor2=0;
-    bool testes[4] = {false};
+    bool testes[3] = {false};
 
     while(!isdigit(ordem))
     {
@@ -27,14 +27,7 @@ int main()
             cin >> matriz[l][c];
         }        
     }
-
-    for (int i = 0; i < ordem; i++)
-    {
-        valor1+=matriz[0][i];
-        
-    }
-    cout<<valor1<<endl;
-    
+    cout<<endl;
 
     for (int i = 0; i < ordem; i++)
     {
@@ -45,73 +38,67 @@ int main()
         cout<<endl<<endl;
     }
     cout<<endl;
+
+    for (int l = 0; l < ordem; l++)//diagonal principal usado como base
+    {
+        valor1 += matriz[l][l];
+    }
     
-    for (int i = 0; i < ordem; i++)//testar linhas
+
+    for (int l = 0; l < ordem; l++)//testar linhas
     {
         for (int c = 0; c < ordem; c++)
         {
-            valor2+= matriz[i][c];
+            valor2 += matriz[l][c];
         }
 
-        if(valor2!=valor1)
+        if(valor2 == valor1)
         {
-            testes[0] =false;
+            testes[0] = true;
         }else
         {
-            testes[0]=true;
+            testes[0] = false;
         }
-        valor2 = 0;              
+        valor2 = 0;        
     }
 
-    for (int i = 0; i < ordem; i++)//testar colunas
-    {
-        for (int c = 0; c < ordem; c++)
-        {
-            valor2+= matriz[c][i];
-        }     
+    valor2 = 0;
 
-        if(valor2!=valor1)
+    for (int c = 0; c < ordem; c++)//testas colunas
+    {
+        for (int l = 0; l < ordem; l++)
         {
-            testes[1] =false;
-        }else
-        {
-            testes[1]=true;
+            valor2 += matriz[l][c];
         }
-        valor2 = 0;                 
-    }
 
-    for (int i = 0; i < ordem; i++)//testar diagonal P
-    {
-        valor2+=matriz[i][i];     
-
-        if(valor2!=valor1)
+        if(valor2 == valor1)
         {
-            testes[2] =false;
+            testes[1] = true;
         }else
         {
-            testes[2]=true;
-        }                 
+            testes[1] = false;
+        }
+        valor2 = 0;        
     }
-    int digit =0;
-    for (int i = ordem-1; i >= 0; i--)//testar diagonal S
-    {        
-        valor2+=matriz[digit][i];
-        digit++;            
+    
+    valor2 = 0;
+    
+    for (int sobi = 0,cai = ordem-1; sobi < ordem; sobi++ , cai--)//diagonal secundaria
+    {
+        valor2 +=matriz[sobi][cai];
 
-        if(valor2!=valor1)
+        if(valor2 == valor1)
         {
-            testes[3] =false;
+            testes[2] = true;
         }else
         {
-            testes[3]=true;
-        }                 
+            testes[2] = false;
+        }        
     }
 
-
-
-    if(testes[0] && testes[1] && testes[2] && testes[3])
+    if(testes[0] && testes[1] && testes[2])
     {
-        cout<<"Cubo magico";
+        cout<<"Cubo magico de valor "<<valor1;
     }else
     {
         cout << "matriz simples";
