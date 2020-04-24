@@ -10,7 +10,6 @@ int main()
     
     char jogoDaVelha[3][3];
     int posX=0, posY=0;
-    bool jogando = true;
 
     for (int l = 0; l < 3; l++)//setar jogo inicial
     {

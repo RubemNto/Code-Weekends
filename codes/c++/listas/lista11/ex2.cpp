@@ -8,13 +8,25 @@ int main()
 {
     setlocale(LC_ALL, "ptb");
 
-    string names[5];
+    string nome, primeiro;
 
-    for (size_t i = 0; i < 5; i++)
+    cout <<"Digite um nome: ";
+    cin >> nome;
+
+    primeiro = nome;
+
+    for (size_t i = 2; i <= 5; i++)
     {
-        cout << "Name " << i+1<<":";
-        cin>> names[i];
+        cout <<"Digite um nome: ";
+        cin >> nome;
+        if (nome < primeiro)
+        {
+            primeiro = nome;
+        }        
     }
+
+    cout << "Primeiro nome: " << primeiro << endl;
+    
     
     return 0;
 }
