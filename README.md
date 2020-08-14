@@ -1,1 +1,1 @@
-# codes
+# c++ codding exercises for begginers 
