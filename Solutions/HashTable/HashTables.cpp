@@ -16,7 +16,7 @@ class HashTable
     typedef node *Node;
 
 public:
-    HasTable()
+    HashTable()
     {
         head = NULL;
     };
